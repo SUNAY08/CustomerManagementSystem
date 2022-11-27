@@ -1,0 +1,393 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Customer Web App",
+        "description": "Customer Web Application which managaes the customer Data",
+        "version": "1.0.0",
+        "termsOfService": "http://swagger.io/terms/",
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/api",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/customer/insertCustomer": {
+            "post": {
+                "deprecated": false,
+                "tags": [
+                    "Customer"
+                ],
+                "description": "This api creates a new Customer",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "userName",
+                        "in": "formData",
+                        "description": "userName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "firstName",
+                        "in": "formData",
+                        "description": "firstName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "lastName",
+                        "in": "formData",
+                        "description": "lastName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "email",
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "password",
+                        "type": "string"
+                    },
+                    {
+                        "name": "confirmPassword",
+                        "in": "formData",
+                        "description": "confirmPassword",
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "description": "phone",
+                        "type": "string"
+                    },
+                    {
+                        "name": "dob",
+                        "in": "formData",
+                        "description": "dob",
+                        "type": "string"
+                    },
+                    {
+                        "name": "gender",
+                        "in": "formData",
+                        "description": "gender",
+                        "type": "string"
+                    },
+                    {
+                        "name": "address",
+                        "in": "formData",
+                        "description": "address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "landmark",
+                        "in": "formData",
+                        "description": "landmark",
+                        "type": "string"
+                    },
+                    {
+                        "name": "city",
+                        "in": "formData",
+                        "description": "city",
+                        "type": "string"
+                    },
+                    {
+                        "name": "state",
+                        "in": "formData",
+                        "description": "state",
+                        "type": "string"
+                    },
+                    {
+                        "name": "country",
+                        "in": "formData",
+                        "description": "country",
+                        "type": "string"
+                    },
+                    {
+                        "name": "zipcode",
+                        "in": "formData",
+                        "description": "zipcode",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image",
+                        "in": "formData",
+                        "description": "image",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/customer/selectCustomers": {
+            "get": {
+                "deprecated": false,
+                "tags": [
+                    "Customer"
+                ],
+                "description": "Return All The Customer With Pagination",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search by email first name and last name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "sortby",
+                        "in": "query",
+                        "description": "sort by any field name like firstName email or lastName email",
+                        "type": "string"
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "order by ascending or descending( 1 for ascending, -1 for descending)",
+                        "type": "number"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page number for pagenation",
+                        "type": "number"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit for pagenation",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/customer/selectCustomerById": {
+            "post": {
+                "deprecated": false,
+                "tags": [
+                    "Customer"
+                ],
+                "description": "Return customer detail by Id",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "customerId",
+                        "in": "formData",
+                        "description": "customerId",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/customer/deleteCustomer": {
+            "post": {
+                "deprecated": false,
+                "tags": [
+                    "Customer"
+                ],
+                "description": "Delete cutomer from DB",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "customerId",
+                        "in": "formData",
+                        "description": "customerId",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/customer/updateCustomer": {
+            "post": {
+                "deprecated": false,
+                "tags": [
+                    "Customer"
+                ],
+                "description": "Updates Customer details by Id",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "customerId",
+                        "in": "formData",
+                        "description": "customerId",
+                        "type": "string"
+                    },
+                    {
+                        "name": "userName",
+                        "in": "formData",
+                        "description": "userName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "firstName",
+                        "in": "formData",
+                        "description": "firstName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "lastName",
+                        "in": "formData",
+                        "description": "lastName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "email",
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "password",
+                        "type": "string"
+                    },
+                    {
+                        "name": "confirmPassword",
+                        "in": "formData",
+                        "description": "confirmPassword",
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "description": "phone",
+                        "type": "string"
+                    },
+                    {
+                        "name": "dob",
+                        "in": "formData",
+                        "description": "dob",
+                        "type": "string"
+                    },
+                    {
+                        "name": "gender",
+                        "in": "formData",
+                        "description": "gender",
+                        "type": "string"
+                    },
+                    {
+                        "name": "address",
+                        "in": "formData",
+                        "description": "address",
+                        "type": "string"
+                    },
+                    {
+                        "name": "state",
+                        "in": "formData",
+                        "description": "state",
+                        "type": "string"
+                    },
+                    {
+                        "name": "country",
+                        "in": "formData",
+                        "description": "country",
+                        "type": "string"
+                    },
+                    {
+                        "name": "city",
+                        "in": "formData",
+                        "description": "city",
+                        "type": "string"
+                    },
+                    {
+                        "name": "zipcode",
+                        "in": "formData",
+                        "description": "zipcode",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image",
+                        "in": "formData",
+                        "description": "image",
+                        "type": "string"
+                    },
+                    {
+                        "name": "landmark",
+                        "in": "formData",
+                        "description": "landmark",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        }
+    }
+}
